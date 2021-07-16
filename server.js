@@ -36,7 +36,7 @@ app.use(express.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.resolve(__dirname, '../client/build')));
+app.use(express.static(path.resolve(__dirname, './client/build')));
 
 // simple route
 app.get("/api", (req, res) => {
@@ -46,7 +46,7 @@ app.get("/api", (req, res) => {
 require("./food/routes/food.routes")(app);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
 });
 
 // set port, listen for requests
